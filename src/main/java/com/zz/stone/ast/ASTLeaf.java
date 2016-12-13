@@ -1,6 +1,8 @@
 package com.zz.stone.ast;
 
+import com.zz.stone.StoneException;
 import com.zz.stone.Token;
+import com.zz.stone.eval.Environment;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -44,5 +46,9 @@ public class ASTLeaf extends ASTree {
 
     public Token token() {
         return token;
+    }
+
+    public Object eval(Environment env) {
+        throw new StoneException("cannot eval: " + toString());
     }
 }

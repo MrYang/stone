@@ -1,8 +1,13 @@
 package com.zz.stone.ast;
 
+import com.zz.stone.eval.Environment;
+
 import java.util.Iterator;
 
 public abstract class ASTree implements Iterable<ASTree> {
+
+    public static final int TRUE = 1;
+    public static final int FALSE = 0;
 
     public abstract ASTree child(int i);
 
@@ -15,4 +20,6 @@ public abstract class ASTree implements Iterable<ASTree> {
     public Iterator<ASTree> iterator() {
         return children();
     }
+
+    public abstract Object eval(Environment env);
 }

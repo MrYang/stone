@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class ParserText {
+public class ParserTest {
 
     @Test
     public void test_parser() throws FileNotFoundException {
