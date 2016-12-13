@@ -2,6 +2,9 @@ package com.zz.stone.ast;
 
 import java.util.List;
 
+/**
+ * 操作符
+ */
 public class BinaryExpr extends ASTList {
 
     public BinaryExpr(List<ASTree> children) {

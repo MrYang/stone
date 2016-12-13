@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * 叶子节点
+ */
 public class ASTLeaf extends ASTree {
 
     private static List<ASTree> empty = new ArrayList<>();

@@ -3,6 +3,9 @@ package com.zz.stone.ast;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * 非叶子节点
+ */
 public class ASTList extends ASTree {
 
     protected List<ASTree> children;

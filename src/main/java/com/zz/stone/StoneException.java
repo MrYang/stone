@@ -17,4 +17,8 @@ public class StoneException extends RuntimeException {
     public StoneException(Throwable cause) {
         super(cause);
     }
+
+    public StoneException(Token token) {
+        this("syntax error around " + token.getText() + " at line" + token.getLineNumber());
+    }
 }
