@@ -13,7 +13,7 @@ public class LexerTest {
     public void test_lexer() throws FileNotFoundException {
         Lexer lexer = new Lexer(new FileReader("/tmp/stone.zz"));
         for (Token token; (token = lexer.read()) != Token.EOF;) {
-            System.out.println(token.show() + " => " + token.getText());
+            System.out.println(token.name() + " => " + token.getText());
         }
     }
 }

@@ -158,7 +158,7 @@ public class Lexer {
             return value;
         }
 
-        public String show() {
+        public String name() {
             return "NumToken";
         }
     }
@@ -179,7 +179,7 @@ public class Lexer {
             return text;
         }
 
-        public String show() {
+        public String name() {
             return "IdToken";
         }
     }
@@ -200,7 +200,7 @@ public class Lexer {
             return literal;
         }
 
-        public String show() {
+        public String name() {
             return "StringToken";
         }
     }

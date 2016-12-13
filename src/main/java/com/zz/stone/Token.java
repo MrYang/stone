@@ -7,7 +7,7 @@ public abstract class Token {
 
     public static final Token EOF = new Token(-1) {
 
-        public String show() {
+        public String name() {
             return "EOF";
         }
     };
@@ -44,6 +44,6 @@ public abstract class Token {
         return "";
     }
 
-    public abstract String show ();
+    public abstract String name();
 
 }
