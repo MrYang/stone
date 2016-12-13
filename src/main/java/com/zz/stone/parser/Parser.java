@@ -228,6 +228,7 @@ public class Parser {
         public static boolean LEFT = true;
         public static boolean RIGHT = false;
 
+        // prec 表示优先级, leftAssoc 表示左结合或者右结合
         public void add(String name, int prec, boolean leftAssoc) {
             put(name, new Precedence(prec, leftAssoc));
         }
