@@ -34,4 +34,8 @@ public class BasicTest {
             "}\n" +
             "\n" +
             "fib(10)";
+
+    protected String closure_func =
+            "inc = fun (x) { x + 1 }\n" +
+            "inc(3)";
 }

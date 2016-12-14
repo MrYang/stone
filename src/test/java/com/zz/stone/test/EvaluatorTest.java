@@ -9,13 +9,12 @@ import com.zz.stone.eval.Environment;
 import com.zz.stone.parser.BasicParser;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
 import java.io.StringReader;
 
 public class EvaluatorTest extends BasicTest {
 
     @Test
-    public void test_eval() throws FileNotFoundException {
+    public void test_eval() {
         StringReader stringReader = new StringReader(lexer);
         Lexer lexer = new Lexer(stringReader);
         Environment env = new BasicEnv();
