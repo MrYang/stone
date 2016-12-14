@@ -13,6 +13,7 @@ import static com.zz.stone.parser.Parser.rule;
 
 /**
  * 语法规则
+ * <p>
  * primary  : "(" expr ")" | NUMBER | IDENTIFIER | STRING
  * factor   : "-" primary | primary
  * expr     : factor { OP factor}

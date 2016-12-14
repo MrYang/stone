@@ -66,4 +66,15 @@ public class BasicTest {
             "p.move(3, 4)\n" +
             "p.x = 10\n" +
             "print p.x + p.y";
+
+
+    protected String array =
+            "a = [2, 3, 4]\n" +
+            "print a[1]\n" +
+            "\n" +
+            "a[1] = \"three\"\n" +
+            "print \"a[1]: \" + a[1]\n" +
+            "\n" +
+            "b = [[\"one\", 1], [\"two\", 2]]\n" +
+            "print b[1][0] + \": \" + b[1][1]";
 }

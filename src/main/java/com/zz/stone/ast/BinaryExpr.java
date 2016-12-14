@@ -54,7 +54,23 @@ public class BinaryExpr extends ASTList {
                     return setField((StoneObject) t, (Dot) p.postfix(0), rvalue);
                 }
             }
+
+            if (p.hasPostfix(0) && p.postfix(0) instanceof ArrayRef) {
+                Object a = ((PrimaryExpr) left).evalSubExpr(env, 1);
+                if (a instanceof Object[]) {
+                    ArrayRef ref = (ArrayRef) p.postfix(0);
+                    Object index = ref.index().eval(env);
+                    if (index instanceof Integer) {
+                        Integer i = (Integer) index;
+                        ((Object[]) a)[i] = rvalue;
+                        return rvalue;
+                    }
+                }
+
+                throw new StoneException("bad array access", this);
+            }
         }
+
 
         throw new StoneException("bad assignment");
     }
