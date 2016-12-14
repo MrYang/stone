@@ -38,4 +38,17 @@ public class BasicTest {
     protected String closure_func =
             "inc = fun (x) { x + 1 }\n" +
             "inc(3)";
+
+    protected String native_func =
+            "def fib(n){\n" +
+            "        if n < 2 {\n" +
+            "                n\n" +
+            "        } else {\n" +
+            "                fib(n - 1) + fib(n - 2)\n" +
+            "        }\n" +
+            "}\n" +
+            "\n" +
+            "t = currentTime()\n" +
+            "fib 15\n" +
+            "print currentTime() - t + \"ms\"";
 }

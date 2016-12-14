@@ -6,6 +6,7 @@ import com.zz.stone.ast.ASTree;
 import com.zz.stone.ast.NullStmnt;
 import com.zz.stone.eval.Environment;
 import com.zz.stone.eval.NestedEnv;
+import com.zz.stone.func.Natives;
 import com.zz.stone.parser.ClosureParser;
 import com.zz.stone.parser.FuncParser;
 import org.junit.Test;
@@ -23,7 +24,7 @@ public class FuncTest extends BasicTest {
         FuncParser funcParser = new FuncParser();
         while (lexer.peek(0) != Token.EOF) {
             ASTree asTree = funcParser.parse(lexer);
-            if (! (asTree instanceof NullStmnt)) {
+            if (!(asTree instanceof NullStmnt)) {
                 Object value = asTree.eval(env);
                 System.out.println(asTree + " => " + value);
             }
@@ -39,9 +40,25 @@ public class FuncTest extends BasicTest {
         ClosureParser closureParser = new ClosureParser();
         while (lexer.peek(0) != Token.EOF) {
             ASTree asTree = closureParser.parse(lexer);
-            if (! (asTree instanceof NullStmnt)) {
+            if (!(asTree instanceof NullStmnt)) {
                 Object value = asTree.eval(env);
                 System.out.println(asTree + " => " + value);
+            }
+        }
+    }
+
+    @Test
+    public void test_native_func() {
+        StringReader stringReader = new StringReader(native_func);
+        Lexer lexer = new Lexer(stringReader);
+        Environment env = new Natives().environment(new NestedEnv());
+
+        ClosureParser closureParser = new ClosureParser();
+        while (lexer.peek(0) != Token.EOF) {
+            ASTree asTree = closureParser.parse(lexer);
+            if (!(asTree instanceof NullStmnt)) {
+                Object value = asTree.eval(env);
+                //System.out.println(" => " + value);
             }
         }
     }
