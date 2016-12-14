@@ -363,8 +363,9 @@ public class Parser {
 
     public ASTree parse(Lexer lexer) {
         ArrayList<ASTree> results = new ArrayList<>();
-        for (Element e : elements)
+        for (Element e : elements) {
             e.parse(lexer, results);
+        }
 
         return factory.make(results);
     }

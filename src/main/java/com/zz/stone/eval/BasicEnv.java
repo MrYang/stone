@@ -3,7 +3,7 @@ package com.zz.stone.eval;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BasicEnv implements Environment {
+public class BasicEnv extends AbstractEnv {
 
     protected Map<String, Object> values;
 

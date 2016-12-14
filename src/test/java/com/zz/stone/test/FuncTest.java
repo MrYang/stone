@@ -4,25 +4,25 @@ import com.zz.stone.Lexer;
 import com.zz.stone.Token;
 import com.zz.stone.ast.ASTree;
 import com.zz.stone.ast.NullStmnt;
-import com.zz.stone.eval.BasicEnv;
 import com.zz.stone.eval.Environment;
-import com.zz.stone.parser.BasicParser;
+import com.zz.stone.eval.NestedEnv;
+import com.zz.stone.parser.FuncParser;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.io.StringReader;
 
-public class EvaluatorTest extends BasicTest {
+public class FuncTest extends BasicTest {
 
     @Test
     public void test_eval() throws FileNotFoundException {
-        StringReader stringReader = new StringReader(lexer);
+        StringReader stringReader = new StringReader(func);
         Lexer lexer = new Lexer(stringReader);
-        Environment env = new BasicEnv();
+        Environment env = new NestedEnv();
 
-        BasicParser basicParser = new BasicParser();
+        FuncParser funcParser = new FuncParser();
         while (lexer.peek(0) != Token.EOF) {
-            ASTree asTree = basicParser.parse(lexer);
+            ASTree asTree = funcParser.parse(lexer);
             if (! (asTree instanceof NullStmnt)) {
                 Object value = asTree.eval(env);
                 System.out.println(asTree + " => " + value);

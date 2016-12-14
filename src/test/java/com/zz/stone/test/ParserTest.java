@@ -3,22 +3,23 @@ package com.zz.stone.test;
 import com.zz.stone.Lexer;
 import com.zz.stone.Token;
 import com.zz.stone.ast.ASTree;
-import com.zz.stone.parser.BasicParser;
+import com.zz.stone.parser.FuncParser;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.StringReader;
 
-public class ParserTest {
+public class ParserTest extends BasicTest {
 
     @Test
     public void test_parser() throws FileNotFoundException {
-        Lexer lexer = new Lexer(new FileReader("/tmp/stone.zz"));
+        StringReader stringReader = new StringReader(lexer);
+        Lexer lexer = new Lexer(stringReader);
 
-        BasicParser basicParser = new BasicParser();
+        FuncParser funcParser = new FuncParser();
         while (lexer.peek(0) != Token.EOF) {
-            ASTree asTree = basicParser.parse(lexer);
-            System.out.println("=> " + asTree.toString());
+            ASTree asTree = funcParser.parse(lexer);
+            System.out.println(asTree + " => " + asTree.toString());
         }
     }
 }
