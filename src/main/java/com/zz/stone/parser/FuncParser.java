@@ -6,6 +6,19 @@ import com.zz.stone.ast.ParameterList;
 
 import static com.zz.stone.parser.Parser.rule;
 
+/**
+ * 语法规则
+ *
+ * param    : IDENTIFIER
+ * params   : param { "," param}
+ * param_list: "(" [ params ] ")"
+ * def      : "def" IDENTIFIER param_list block
+ * args     : expr { "," expr }
+ * postfix  : "(" [ args ] ")"
+ * primary  : ( "(" expr ")" | NUMBER | IDENTIFIER | STRING ) { postfix }
+ * simple   : expr [ args ]
+ * program  : [ def | statement ] (";" | EOL)
+ */
 public class FuncParser extends BasicParser {
 
     Parser param = rule().identifier(reserved);

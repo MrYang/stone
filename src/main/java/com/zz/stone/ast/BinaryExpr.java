@@ -1,6 +1,7 @@
 package com.zz.stone.ast;
 
 import com.zz.stone.StoneException;
+import com.zz.stone.StoneObject;
 import com.zz.stone.eval.Environment;
 
 import java.util.List;
@@ -43,6 +44,16 @@ public class BinaryExpr extends ASTList {
         if (left instanceof Name) {
             env.put(((Name) left).name(), rvalue);
             return rvalue;
+        }
+
+        if (left instanceof PrimaryExpr) {
+            PrimaryExpr p = (PrimaryExpr) left;
+            if (p.hasPostfix(0) && p.postfix(0) instanceof Dot) {
+                Object t = ((PrimaryExpr) left).evalSubExpr(env, 1);
+                if (t instanceof StoneObject) {
+                    return setField((StoneObject) t, (Dot) p.postfix(0), rvalue);
+                }
+            }
         }
 
         throw new StoneException("bad assignment");
@@ -101,5 +112,11 @@ public class BinaryExpr extends ASTList {
         }
 
         throw new StoneException("bad operator");
+    }
+
+    private Object setField(StoneObject obj, Dot expr, Object rvalue) {
+        String name = expr.name();
+        obj.write(name, rvalue);
+        return rvalue;
     }
 }

@@ -51,4 +51,19 @@ public class BasicTest {
             "t = currentTime()\n" +
             "fib 15\n" +
             "print currentTime() - t + \"ms\"";
+
+    protected String class_info =
+            "class Position {\n" +
+            "        x = y = 0\n" +
+            "\n" +
+            "        def move(nx, ny) {\n" +
+            "                x = nx; y = ny\n" +
+            "        }\n" +
+            "}\n" +
+            "\n" +
+            "p = Position.new\n" +
+            "\n" +
+            "p.move(3, 4)\n" +
+            "p.x = 10\n" +
+            "print p.x + p.y";
 }
