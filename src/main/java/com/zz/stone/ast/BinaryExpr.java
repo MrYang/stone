@@ -7,7 +7,7 @@ import com.zz.stone.eval.Environment;
 import java.util.List;
 
 /**
- * 操作符
+ * 双目操作符
  */
 public class BinaryExpr extends ASTList {
 

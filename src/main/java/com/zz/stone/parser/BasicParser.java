@@ -21,11 +21,15 @@ import static com.zz.stone.parser.Parser.rule;
  * simple   : expr
  * statement: "if" expr block [ "else" block ] | "while" expr block | simple
  * program  : [ statement ] (";" | EOL)
- */
+ *
+ *
+ * factor:因子,term:项,expression:表达式
+*/
 public class BasicParser {
 
-    // 保留标识
+    // 结束符
     Set<String> reserved = new HashSet<>();
+    // 操作符
     Operators operators = new Operators();
 
     Parser expr0 = rule();

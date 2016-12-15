@@ -4,6 +4,9 @@ import com.zz.stone.StoneException;
 import com.zz.stone.Token;
 import com.zz.stone.eval.Environment;
 
+/**
+ * 表示一个Identifier 节点
+ */
 public class Name extends ASTLeaf {
 
     public Name(Token token) {

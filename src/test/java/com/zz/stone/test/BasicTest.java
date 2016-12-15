@@ -3,6 +3,7 @@ package com.zz.stone.test;
 public class BasicTest {
 
     protected String lexer =
+            "str = \"123\"" +
             "even = 0\n" +
             "\n" +
             "odd = 0\n" +

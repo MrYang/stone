@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
  */
 public class Lexer {
 
+    // 使用正则表达式区分三种不同的token
     public static String regexPattern = "\\s*((//.*)|([0-9]+)|(\"(\\\\\"|\\\\\\\\|\\\\n|[^\"])*\")|[A-Z_a-z][A-Z_a-z0-9]*|==|<=|>=|&&|\\|\\||\\p{Punct})?";
 
     public Pattern pattern = Pattern.compile(regexPattern);

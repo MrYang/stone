@@ -1,7 +1,7 @@
 package com.zz.stone;
 
 /**
- * 代表一个单词对象
+ * 代表一个单词对象, token 的种类只用三种, 分别是number, string, identifier
  */
 public abstract class Token {
 
@@ -12,6 +12,7 @@ public abstract class Token {
         }
     };
 
+    // 换行
     public static final String EOL = "\\n";
 
     private int lineNumber;
@@ -20,6 +21,7 @@ public abstract class Token {
         this.lineNumber = lineNumber;
     }
 
+    // 行号
     public int getLineNumber() {
         return lineNumber;
     }
@@ -36,10 +38,12 @@ public abstract class Token {
         return false;
     }
 
+    // 数字字面量
     public int getNumber() {
         throw new StoneException("not number token");
     }
 
+    // 节点文本
     public String getText() {
         return "";
     }
