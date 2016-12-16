@@ -11,4 +11,10 @@ public interface Environment {
     Environment where(String name);
 
     void setOuter(Environment e);
+
+    void put(int nest, int index, Object value);
+
+    Object get(int nest, int index);
+
+    Symbols symbols();
 }

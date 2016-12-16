@@ -3,6 +3,7 @@ package com.zz.stone.ast;
 import com.zz.stone.StoneException;
 import com.zz.stone.Token;
 import com.zz.stone.eval.Environment;
+import com.zz.stone.eval.Symbols;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -50,5 +51,9 @@ public class ASTLeaf extends ASTree {
 
     public Object eval(Environment env) {
         throw new StoneException("cannot eval: " + toString());
+    }
+
+    public void lookup(Symbols sym) {
+        throw new StoneException("not implements");
     }
 }

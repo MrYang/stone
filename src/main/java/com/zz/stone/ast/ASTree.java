@@ -1,6 +1,7 @@
 package com.zz.stone.ast;
 
 import com.zz.stone.eval.Environment;
+import com.zz.stone.eval.Symbols;
 
 import java.util.Iterator;
 
@@ -22,4 +23,6 @@ public abstract class ASTree implements Iterable<ASTree> {
     }
 
     public abstract Object eval(Environment env);
+
+    public abstract void lookup(Symbols sym);
 }

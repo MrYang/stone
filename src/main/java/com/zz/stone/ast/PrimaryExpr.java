@@ -4,6 +4,9 @@ import com.zz.stone.eval.Environment;
 
 import java.util.List;
 
+/**
+ * 表达式
+ */
 public class PrimaryExpr extends ASTList {
 
     public PrimaryExpr(List<ASTree> children) {

@@ -3,6 +3,7 @@ package com.zz.stone.ast;
 import com.zz.stone.StoneException;
 import com.zz.stone.StoneObject;
 import com.zz.stone.eval.Environment;
+import com.zz.stone.eval.Symbols;
 
 import java.util.List;
 
@@ -39,9 +40,23 @@ public class BinaryExpr extends ASTList {
         return computeOp(left, op, right);
     }
 
+    public void lookup(Symbols syms) {
+        ASTree left = left();
+        if ("=".equals(operator())) {
+            if (left instanceof Name) {
+                ((Name) left).lookupForAssign(syms);
+                right().lookup(syms);
+                return;
+            }
+        }
+        left.lookup(syms);
+        right().lookup(syms);
+    }
+
     protected Object computeAssign(Environment env, Object rvalue) {
         ASTree left = left();
         if (left instanceof Name) {
+            //((Name)left).evalForAssign(env, rvalue);
             env.put(((Name) left).name(), rvalue);
             return rvalue;
         }

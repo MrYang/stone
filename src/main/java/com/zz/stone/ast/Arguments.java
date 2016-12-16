@@ -7,6 +7,9 @@ import com.zz.stone.func.NativeFunction;
 
 import java.util.List;
 
+/**
+ * 实参序列
+ */
 public class Arguments extends Postfix {
 
     public Arguments(List<ASTree> children) {
